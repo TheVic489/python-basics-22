@@ -37,8 +37,8 @@ b. Per cada amic:
 def read_friends(friends_filename: str) -> list[str]:
 
     friends_filepath: Path      = Path(friends_filename)
-    friends_text:     str       = friends_filepath.read_text()
-    friends_list:     list[str] = friends_text.split()
+    friends_text:     str       = friends_filepath.read_text().strip()
+    friends_list:     list[str] = friends_text.split("\n")
 
     return friends_list
 
@@ -67,5 +67,5 @@ def write_invitations(friends_list: list[str], letter_template_filename: str):
 # Main
 # -----------------------------------------------------------------------------
 friends_list: list[str] = read_friends('friends.txt')
-write_invitations(friends_list, 'invitation.txt')
+write_invitations(friends_list, 'letter.txt')
 # -----------------------------------------------------------------------------
