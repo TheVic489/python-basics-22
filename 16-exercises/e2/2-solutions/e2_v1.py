@@ -88,8 +88,8 @@ def rename_files(glob: str, old_str: str, new_str: str):
     current_dir:       Path       = Path('.')
     old_filepath_list: list[Path] = list(current_dir.glob(glob))
 
-    old_filename_list: list[str] = [str(filepath) for filepath in old_filepath_list]
-    new_filename_list: list[str] = rename_filename_list(old_filename_list, old_str, new_str)
+    old_filename_list: list[str]  = [str(filepath) for filepath in old_filepath_list]
+    new_filename_list: list[str]  = rename_filename_list(old_filename_list, old_str, new_str)
 
     assert is_renaming_ok(old_filename_list, new_filename_list)
     rename_files_on_disk(old_filename_list, new_filename_list)
