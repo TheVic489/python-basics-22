@@ -22,7 +22,7 @@ def convert_md_to_html(markdown_string: str) -> str:
        Output: HTML string"""
 
     md: Markdown = markdown.Markdown(extensions = ['meta'])
-    html: str      = md.convert(markdown_string)
+    html: str    = md.convert(markdown_string)
 
     return html
 
