@@ -58,13 +58,15 @@ def rename_filename_list(old_filename_list: list[str], old_str: str, new_str: st
 # 1. No repeats:  renamed_filename_list has no repeated filenames.
 # 2. No overlaps: No original filenames in renamed_filename_list  =>  Could lead to file overwriting
 # -----------------------------------------------------------------------------
-def is_renaming_ok(original_filename_list: list[str], renamed_filename_list: list[str]) -> bool:
+def is_renaming_ok(old_filename_list: list[str], new_filename_list: list[str]) -> bool:
 
     # 1. No repeats:  renamed_filename_list has no repeated filenames.
-    no_repeats: bool = len(renamed_filename_list) == len(set(renamed_filename_list))
+    no_repeats: bool = len(new_filename_list) == len(set(new_filename_list))
 
     # 2. No overlaps: No original filenames in renamed_filename_list
-    no_overlaps: bool = all([filename not in renamed_filename_list for filename in original_filename_list])
+    no_overlaps: bool = all([filename not in new_filename_list
+                             for filename
+                             in old_filename_list])
 
     # Result
     all_ok: bool = no_repeats and no_overlaps
@@ -83,13 +85,13 @@ def rename_files_on_disk(old_filename_list: list[str], new_filename_list: list[s
 
 
 # -----------------------------------------------------------------------------
-def rename_files(glob: str, old_str: str, new_str: str):
+def rename_files(pattern: str, old_str: str, new_str: str):
 
     current_dir:       Path       = Path('.')
-    old_filepath_list: list[Path] = list(current_dir.glob(glob))
+    old_filepath_list: list[Path] = list(current_dir.glob(pattern))
 
-    old_filename_list: list[str]  = [str(filepath) for filepath in old_filepath_list]
-    new_filename_list: list[str]  = rename_filename_list(old_filename_list, old_str, new_str)
+    old_filename_list: list[str] = [str(filepath) for filepath in old_filepath_list]
+    new_filename_list: list[str] = rename_filename_list(old_filename_list, old_str, new_str)
 
     assert is_renaming_ok(old_filename_list, new_filename_list)
     rename_files_on_disk(old_filename_list, new_filename_list)
