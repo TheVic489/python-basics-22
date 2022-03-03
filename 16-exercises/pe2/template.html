@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>ADN sequence</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        
+        {% for seq in num_of_sequences %}
+
+            {% for line in cuted_adn_seq %}
+                <p>{{line}}</p>        
+            {% endfor %}
+        
+        {% endfor %}
+
+    </body>
+
+</html>
