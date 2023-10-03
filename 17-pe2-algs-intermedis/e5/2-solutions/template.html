@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- Using inline CSS to avoid an extra file, but it's no good practice! -->
+<!-- loop.index is a predefined variable in Jinja. It wasn't necessary for the exercise.
+     https://jinja.palletsprojects.com/en/3.0.x/templates/#list-of-control-structures -->
+<!-- Use span to style part of a text.
+     https://stackoverflow.com/questions/4622808/html-changing-colors-of-specific-words-in-a-string-of-text
+     https://stackoverflow.com/questions/5078239/how-do-i-remove-the-space-between-inline-inline-block-elements -->
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Random DNA Sequences</title>
+
+        <style>
+            p    { font-family: monospace;
+                   font-size:   x-large;
+                   display:     flex;     }
+            .snp { color: #ff0000;      }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Random SNPs</h1>
+
+        <h2>Original Sequence</h2>
+        <p>{{original_seq}}</p>
+
+        {% for mutation in mutation_list %}
+
+            <h2>Sequence {{loop.index}}</h2>
+
+            <p>
+                {{mutation.before_seq}}
+                <span class="snp">{{mutation.snp}}</span>
+                {{mutation.after_seq}}
+            </p>
+
+        {% endfor %}
+    </body>
+
+</html>

@@ -1,0 +1,33 @@
+[
+    {
+        "date":   "2006-01-05",
+        "trans":  "BUY",
+        "symbol": "RHAT",
+        "qty":    100,
+        "price":  35.14
+    }
+    ,
+    {
+        "date":   "2006-03-28",
+        "trans":  "BUY",
+        "symbol": "IBM",
+        "qty":    1000,
+        "price":  45.0
+    }
+    ,
+    {
+        "date":   "2006-04-06",
+        "trans":  "SELL",
+        "symbol": "IBM",
+        "qty":    500,
+        "price":  53.0
+    }
+    ,
+    {
+        "date":   "2006-04-05",
+        "trans":  "BUY",
+        "symbol": "MSFT",
+        "qty":    1000,
+        "price":  72.0
+    }
+]

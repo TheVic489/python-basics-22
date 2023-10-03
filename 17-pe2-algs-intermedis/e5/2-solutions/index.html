@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- Using inline CSS to avoid an extra file, but it's no good practice! -->
+<!-- loop.index is a predefined variable in Jinja. It wasn't necessary for the exercise.
+     https://jinja.palletsprojects.com/en/3.0.x/templates/#list-of-control-structures -->
+<!-- Use span to style part of a text.
+     https://stackoverflow.com/questions/4622808/html-changing-colors-of-specific-words-in-a-string-of-text
+     https://stackoverflow.com/questions/5078239/how-do-i-remove-the-space-between-inline-inline-block-elements -->
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Random DNA Sequences</title>
+
+        <style>
+            p    { font-family: monospace;
+                   font-size:   x-large;
+                   display:     flex;     }
+            .snp { color: #ff0000;      }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Random SNPs</h1>
+
+        <h2>Original Sequence</h2>
+        <p>TTCGGAGGTAATTGCTTGTAGTAGTTAAAGTAGGTCATCATGGACCGGAAAGAATGGATG</p>
+
+        
+
+            <h2>Sequence 1</h2>
+
+            <p>
+                TTCGGAGGTAATTGCTTGTAGTA
+                <span class="snp">C</span>
+                TTAAAGTAGGTCATCATGGACCGGAAAGAATGGATG
+            </p>
+
+        
+
+            <h2>Sequence 2</h2>
+
+            <p>
+                TTCGGAGGTAATTGCTTGTAG
+                <span class="snp">C</span>
+                AGTTAAAGTAGGTCATCATGGACCGGAAAGAATGGATG
+            </p>
+
+        
+
+            <h2>Sequence 3</h2>
+
+            <p>
+                TTCGGAGGTAATTGCTTGTAGTAGTTAAAGTAGGTCATCAT
+                <span class="snp">A</span>
+                GACCGGAAAGAATGGATG
+            </p>
+
+        
+    </body>
+
+</html>
