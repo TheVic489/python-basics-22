@@ -10,7 +10,7 @@ def main() -> None:
     data_file: Path = Path("data.txt")
 
     # Read whole file with newlines
-    text: str = data_file.read_text()
+    text: str = data_file.read_text(encoding='UTF-8')
 
     # Print file contents as you wish
     print(text)
